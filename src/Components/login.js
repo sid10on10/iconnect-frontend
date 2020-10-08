@@ -40,6 +40,7 @@ constructor(props) {
             console.error(err);
             alert('Error logging in please try again');
         });
+        // to implement after client side cookie in fetch
         // this.props.history.push('/dashboard');
     }
 
