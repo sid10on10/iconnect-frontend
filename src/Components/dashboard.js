@@ -10,9 +10,19 @@ export default class Dashboard extends Component {
     }
     componentDidMount() {
       //GET message from server using fetch api
-      fetch('https://iconnect-backend.herokuapp.com/dashboard')
-        .then(res => res.text())
-        .then(res => this.setState({message: res}))
+      let token = localStorage.getItem("token")
+      fetch('https://iconnect-backend.herokuapp.com/dashboard',{
+        method:"GET",
+        headers: {
+            'Content-Type': 'application/json',
+            "authorization": token,
+        }
+        })
+        .then( async (res) => {
+          let data = await res.json()
+          //console.log(data.message)
+          this.setState({message:data.message})
+        })
         .catch(err => {
           console.error(err);
           alert('Something went wrong!');

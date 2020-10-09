@@ -31,7 +31,9 @@ constructor(props) {
         .then(async (res) => {
             let data = await res.json()
             if(data.message==="Login Successfull"){
-                this.props.history.push('/message');
+                alert(data.message)
+                localStorage.setItem('token',data.token)
+                this.props.history.push('/dashboard');
             }else{
                 alert(data.message)
             }

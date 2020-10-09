@@ -14,14 +14,21 @@ export default function Auth(ProtectedComponent) {
     }
     // cookies with include are not working ...resolve this later
     componentDidMount() {
-      fetch('https://iconnect-backend.herokuapp.com/checkToken')
-        .then(res => {
-          if (res.status === 200) {
+      let token = localStorage.getItem("token")
+      fetch('https://iconnect-backend.herokuapp.com/checkToken',{
+        method:"GET",
+        headers: {
+            'Content-Type': 'application/json',
+            "authorization": token,
+        }
+        })
+        .then( async res => {
+          let data = await res.json()
+          if (data.message === "valid token") {
             this.setState({ loading: false });
-            console.log(res)
           } else {
-            const error = new Error(res.error);
-            throw error;
+            alert(data.message)
+            this.setState({ loading: false, redirect: true });
           }
         })
         .catch(err => {
