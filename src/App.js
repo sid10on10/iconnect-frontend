@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./Components/login";
 import SignUp from "./Components/signup";
 import Dashboard from "./Components/dashboard";
+import LogOut from "./Components/Logout";
 // higher order component
 import Auth from './Components/auth'; 
 
@@ -27,6 +28,9 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to={"/dashboard"}>Dashboard</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/logout"}>Logout</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -38,6 +42,7 @@ function App() {
             <Route exact path='/' component={Login} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={SignUp} />
+            <Route path="/logout" component={LogOut} />
             <Route path="/dashboard" component={Auth(Dashboard)} />
           </Switch>
         </div>
