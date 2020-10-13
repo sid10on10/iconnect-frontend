@@ -15,7 +15,7 @@ export default function Auth(ProtectedComponent) {
     // cookies with include are not working ...resolve this later
     componentDidMount() {
       let token = localStorage.getItem("token")
-      fetch('https://iconnect-backend.herokuapp.com/checkToken',{
+      fetch('http://localhost:3000/checkToken',{
         method:"GET",
         headers: {
             'Content-Type': 'application/json',

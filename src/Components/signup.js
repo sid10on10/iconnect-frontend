@@ -27,7 +27,7 @@ export default class SignUp extends Component {
     
         onSubmit = (event) => {
             event.preventDefault();
-            fetch('https://iconnect-backend.herokuapp.com/signup', {
+            fetch('http://localhost:3000/signup', {
                 method: 'POST',
                 body: JSON.stringify(this.state),
                 headers: {

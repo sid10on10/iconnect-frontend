@@ -11,7 +11,7 @@ export default class Dashboard extends Component {
     componentDidMount() {
       //GET message from server using fetch api
       let token = localStorage.getItem("token")
-      fetch('https://iconnect-backend.herokuapp.com/dashboard',{
+      fetch('http://localhost:3000/dashboard',{
         method:"GET",
         headers: {
             'Content-Type': 'application/json',

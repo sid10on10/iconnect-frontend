@@ -21,7 +21,7 @@ constructor(props) {
 
     onSubmit = (event) => {
         event.preventDefault();
-        fetch('https://iconnect-backend.herokuapp.com/login', {
+        fetch('http://localhost:3000/login', {
             method: 'POST',
             body: JSON.stringify(this.state),
             headers: {
