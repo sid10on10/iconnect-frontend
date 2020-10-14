@@ -24,7 +24,7 @@ export default function Auth(ProtectedComponent) {
         })
         .then( async res => {
           let data = await res.json()
-          if (data.message === "valid token") {
+          if (res.status===200) {
             this.setState({ loading: false });
           } else {
             alert(data.message)
